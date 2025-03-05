@@ -4,15 +4,17 @@ from vertexai.language_models import ChatModel
 import os
 
 app = Flask(__name__)
-PROJECT_ID = "tt-dev-001"  
+PROJECT_ID = "anilprojects"  
 LOCATION = "us-central1"  
 
 vertexai.init(project=PROJECT_ID, location=LOCATION)
 
 def create_session():
     chat_model = ChatModel.from_pretrained("chat-bison@001")
-    chat = chat_model.start_chat()
-    return chat
+    return chat-model
+    except Exception as e: 
+    print("Error in create_session:", e)
+        return None
 
 def response(chat, message):
     parameters = {
